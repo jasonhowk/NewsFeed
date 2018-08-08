@@ -24,17 +24,14 @@ class News_FeedTests: XCTestCase {
     
     func testNewsAPIService() {
         print("Testing Top Headlines...")
+        // TODO: This could be improved by refactoring the Service to all for a mock response to be injected.  Keeping it simple for now.
         let expectation = XCTestExpectation(description: "top headlines")
         let api = NewsAPIService(withKey: "0f7cae49ce404bebaafbe47332970a4c")
-        api.requestTopHeadlines { (apiResponse, result) in
+        api.requestTopHeadlines { (result) in
             switch result {
-            case .success:
-                if let response = apiResponse {
-                    print("Parsed Results: \(response)")
-                    XCTAssertTrue(response.articles.count == response.totalResults)
-                } else {
-                    XCTFail("Successful result received, however received an empty response.")
-                }
+            case .success(let response):
+                print("Parsed Results: \(response)")
+                XCTAssertTrue(response.articles.count == response.totalResults)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

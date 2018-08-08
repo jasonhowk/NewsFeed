@@ -8,15 +8,12 @@
 
 import Foundation
 
-/// A Clousure that receives the newsapi.org data requested.
-typealias NewsAPIRequestCompletionHandler = (NewsAPIResponse?, ServiceResult) -> Void
-
 /// The status of a given NewAPIService request.
 ///
-/// - success: The requested operation was successful.
-/// - failure: The requested operation was unsuccessful.  The error is supplied as an associated value.
-enum ServiceResult {
-    case success
+/// - success: The requested operation was successful.  Includes response as associated value.
+/// - failure: The requested operation was unsuccessful. Includes an error as an associated value.
+enum ServiceResult<T> {
+    case success(response: T)
     case failure(error: Error)
 }
 
@@ -41,8 +38,8 @@ class NewsAPIService {
     
     /// Asyncronously retrieves the top headlines.
     ///
-    /// - Parameter completionHandler: The `NewsAPIRequestCompletionHandler` that will be invoked once the request is completed.
-    func requestTopHeadlines(completionHandler:@escaping NewsAPIRequestCompletionHandler){
+    /// - Parameter completionHandler: The completion handler that will be invoked once the request is complete.
+    func requestTopHeadlines(completionHandler:@escaping(ServiceResult<NewsAPIResponse>) -> Void){
         // REQUEST PARAMS: country, category, sources, q (keyword to search), pagesize, page
         // RESPONSE: status, totalResults, articles (array[article])
         let topHeadlinesURLString = baseURL + defaultTopHeadlinesPath
@@ -56,12 +53,11 @@ class NewsAPIService {
                         decoder.dateDecodingStrategy = .iso8601
                         do {
                             let apiResponse = try decoder.decode(NewsAPIResponse.self, from: jsonData)
-                            completionHandler(apiResponse, .success)
+                            completionHandler(ServiceResult.success(response: apiResponse))
                         } catch DecodingError.dataCorrupted(let context) {
-                            debugPrint("Error decoding JSON resposnse.")
-                            completionHandler(nil,.failure(error: DecodingError.dataCorrupted(context)))
+                            completionHandler(ServiceResult.failure(error: DecodingError.dataCorrupted(context)))
                         } catch let decodeError {
-                            completionHandler(nil,.failure(error: decodeError))
+                            completionHandler(ServiceResult.failure(error: decodeError))
                         }
                     }
                 }
@@ -69,7 +65,7 @@ class NewsAPIService {
             else {
                 // Failure
                 debugPrint("URL Request Failed: %@", error!.localizedDescription)
-                completionHandler(nil,.failure(error: error!))
+                completionHandler(ServiceResult.failure(error: error!))
             }
         }
     }
