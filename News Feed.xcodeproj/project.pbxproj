@@ -17,6 +17,7 @@
 		7A19420E211A95030023FD09 /* NewsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19420D211A95030023FD09 /* NewsAPIService.swift */; };
 		7A194212211A95AB0023FD09 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194211211A95AB0023FD09 /* Article.swift */; };
 		7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */; };
+		7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7A19420D211A95030023FD09 /* NewsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIService.swift; sourceTree = "<group>"; };
 		7A194211211A95AB0023FD09 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIResponse.swift; sourceTree = "<group>"; };
+		7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,6 @@
 				7A194208211A93E00023FD09 /* Controllers */,
 				7A19420A211A94290023FD09 /* Storyboards */,
 				7A1941D9211A8D0B0023FD09 /* AppDelegate.swift */,
-				7A1941DB211A8D0B0023FD09 /* ViewController.swift */,
 				7A1941E0211A8D0D0023FD09 /* Assets.xcassets */,
 				7A1941E5211A8D0D0023FD09 /* Info.plist */,
 			);
@@ -146,6 +147,8 @@
 		7A194208211A93E00023FD09 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7A1941DB211A8D0B0023FD09 /* ViewController.swift */,
+				7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */,
+				7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */,
 				7A1941DC211A8D0B0023FD09 /* ViewController.swift in Sources */,
 				7A1941DA211A8D0B0023FD09 /* AppDelegate.swift in Sources */,
 				7A19420E211A95030023FD09 /* NewsAPIService.swift in Sources */,
