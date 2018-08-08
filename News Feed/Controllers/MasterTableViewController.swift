@@ -26,6 +26,9 @@ class MasterTableViewController: UITableViewController {
         refreshControl = refresh
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 404
+        
         // Grab the data...
         loadData()
     }
@@ -45,10 +48,12 @@ class MasterTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "masterCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "masterCell", for: indexPath) as? MasterTableViewCell else {
+            return UITableViewCell()
+        }
 
         // Configure the cell...
-        cell.textLabel?.text = articles[indexPath.row].title
+        cell.article = articles[indexPath.row]
 
         return cell
     }

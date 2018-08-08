@@ -18,6 +18,7 @@
 		7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */; };
 		7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */; };
 		7A19421E211B84970023FD09 /* ServiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421D211B84970023FD09 /* ServiceCoordinator.swift */; };
+		7A194220211B8BEB0023FD09 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIResponse.swift; sourceTree = "<group>"; };
 		7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		7A19421D211B84970023FD09 /* ServiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCoordinator.swift; sourceTree = "<group>"; };
+		7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		7A194209211A93F50023FD09 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */,
 				7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */,
+				7A194220211B8BEB0023FD09 /* MasterTableViewCell.swift in Sources */,
 				7A1941DA211A8D0B0023FD09 /* AppDelegate.swift in Sources */,
 				7A19421E211B84970023FD09 /* ServiceCoordinator.swift in Sources */,
 				7A19420E211A95030023FD09 /* NewsAPIService.swift in Sources */,
