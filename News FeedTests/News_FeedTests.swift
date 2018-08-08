@@ -21,16 +21,26 @@ class News_FeedTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testNewsAPIService() {
+        print("Testing Top Headlines...")
+        let expectation = XCTestExpectation(description: "top headlines")
+        let api = NewsAPIService(withKey: "0f7cae49ce404bebaafbe47332970a4c")
+        api.requestTopHeadlines { (data, response, error) in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                print("URL Request Succeeded: HTTP \(statusCode)")
+                XCTAssertTrue(statusCode == 200)
+            }
+            else {
+                // Failure
+                print("URL Request Failed: %@", error!.localizedDescription);
+                XCTFail(error!.localizedDescription)
+            }
+            expectation.fulfill()
         }
+        
+        wait(for: [expectation], timeout: 10.0)
     }
-    
 }
