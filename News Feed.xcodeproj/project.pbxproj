@@ -97,11 +97,13 @@
 		7A1941D8211A8D0B0023FD09 /* News Feed */ = {
 			isa = PBXGroup;
 			children = (
+				7A194207211A93A40023FD09 /* Models */,
+				7A194209211A93F50023FD09 /* Views */,
+				7A194208211A93E00023FD09 /* Controllers */,
+				7A19420A211A94290023FD09 /* Storyboards */,
 				7A1941D9211A8D0B0023FD09 /* AppDelegate.swift */,
 				7A1941DB211A8D0B0023FD09 /* ViewController.swift */,
-				7A1941DD211A8D0B0023FD09 /* Main.storyboard */,
 				7A1941E0211A8D0D0023FD09 /* Assets.xcassets */,
-				7A1941E2211A8D0D0023FD09 /* LaunchScreen.storyboard */,
 				7A1941E5211A8D0D0023FD09 /* Info.plist */,
 			);
 			path = "News Feed";
@@ -123,6 +125,36 @@
 				7A1941FB211A8D0E0023FD09 /* Info.plist */,
 			);
 			path = "News FeedUITests";
+			sourceTree = "<group>";
+		};
+		7A194207211A93A40023FD09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A194208211A93E00023FD09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7A194209211A93F50023FD09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A19420A211A94290023FD09 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7A1941DD211A8D0B0023FD09 /* Main.storyboard */,
+				7A1941E2211A8D0D0023FD09 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
