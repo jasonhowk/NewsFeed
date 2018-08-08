@@ -15,7 +15,7 @@ class MasterTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    private lazy var newsAPI:NewsAPIService = NewsAPIService(withKey: "0f7cae49ce404bebaafbe47332970a4c")
+    private lazy var newsAPI:NewsAPIService = ServiceCoordinator.sharedInstance.newsService
     private var refresh:UIRefreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
