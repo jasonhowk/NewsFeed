@@ -26,18 +26,19 @@ class News_FeedTests: XCTestCase {
         print("Testing Top Headlines...")
         let expectation = XCTestExpectation(description: "top headlines")
         let api = NewsAPIService(withKey: "0f7cae49ce404bebaafbe47332970a4c")
-        api.requestTopHeadlines { (data, response, error) in
-            if (error == nil) {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("URL Request Succeeded: HTTP \(statusCode)")
-                XCTAssertTrue(statusCode == 200)
+        api.requestTopHeadlines { (apiResponse, result) in
+            switch result {
+            case .success:
+                if let response = apiResponse {
+                    print("Parsed Results: \(response)")
+                    XCTAssertTrue(response.articles.count == response.totalResults)
+                } else {
+                    XCTFail("Successful result received, however received an empty response.")
+                }
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
-            else {
-                // Failure
-                print("URL Request Failed: %@", error!.localizedDescription);
-                XCTFail(error!.localizedDescription)
-            }
+            
             expectation.fulfill()
         }
         

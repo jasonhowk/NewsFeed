@@ -8,7 +8,17 @@
 
 import Foundation
 
-typealias RequestCompletionHandler = (Data?, URLResponse?, Error?) -> Void
+/// A Clousure that receives the newsapi.org data requested.
+typealias NewsAPIRequestCompletionHandler = (NewsAPIResponse?, ServiceResult) -> Void
+
+/// The status of a given NewAPIService request.
+///
+/// - success: The requested operation was successful.
+/// - failure: The requested operation was unsuccessful.  The error is supplied as an associated value.
+enum ServiceResult {
+    case success
+    case failure(error: Error)
+}
 
 class NewsAPIService {
     // Config Items.
@@ -28,11 +38,40 @@ class NewsAPIService {
     }
     
     // MARK: - Public
-    func requestTopHeadlines(completionHandler: @escaping RequestCompletionHandler) {
+    
+    /// Asyncronously retrieves the top headlines.
+    ///
+    /// - Parameter completionHandler: The `NewsAPIRequestCompletionHandler` that will be invoked once the request is completed.
+    func requestTopHeadlines(completionHandler:@escaping NewsAPIRequestCompletionHandler){
         // REQUEST PARAMS: country, category, sources, q (keyword to search), pagesize, page
         // RESPONSE: status, totalResults, articles (array[article])
         let topHeadlinesURLString = baseURL + defaultTopHeadlinesPath
-        requestURL(topHeadlinesURLString, completionHandler: completionHandler)
+        requestURL(topHeadlinesURLString) { (data, response, error) in
+            if (error == nil) {
+                // Success
+                let statusCode = (response as! HTTPURLResponse).statusCode
+                if statusCode == 200 {
+                    if let jsonData = data {
+                        let decoder = JSONDecoder()
+                        decoder.dateDecodingStrategy = .iso8601
+                        do {
+                            let apiResponse = try decoder.decode(NewsAPIResponse.self, from: jsonData)
+                            completionHandler(apiResponse, .success)
+                        } catch DecodingError.dataCorrupted(let context) {
+                            debugPrint("Error decoding JSON resposnse.")
+                            completionHandler(nil,.failure(error: DecodingError.dataCorrupted(context)))
+                        } catch let decodeError {
+                            completionHandler(nil,.failure(error: decodeError))
+                        }
+                    }
+                }
+            }
+            else {
+                // Failure
+                debugPrint("URL Request Failed: %@", error!.localizedDescription)
+                completionHandler(nil,.failure(error: error!))
+            }
+        }
     }
     
     func everything() {
@@ -46,7 +85,7 @@ class NewsAPIService {
     }
     
     // MARK: - Private
-    private func requestURL(_ urlString:String, completionHandler:@escaping RequestCompletionHandler ) {
+    private func requestURL(_ urlString:String, completionHandler:@escaping (Data?, URLResponse?, Error?) -> Void) {
         // Configure Session
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.requestCachePolicy = .useProtocolCachePolicy

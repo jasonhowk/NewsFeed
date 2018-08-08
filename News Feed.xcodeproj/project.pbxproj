@@ -16,7 +16,7 @@
 		7A1941FA211A8D0E0023FD09 /* News_FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1941F9211A8D0E0023FD09 /* News_FeedUITests.swift */; };
 		7A19420E211A95030023FD09 /* NewsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19420D211A95030023FD09 /* NewsAPIService.swift */; };
 		7A194212211A95AB0023FD09 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194211211A95AB0023FD09 /* Article.swift */; };
-		7A194214211A97010023FD09 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194213211A97010023FD09 /* Source.swift */; };
+		7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		7A1941FB211A8D0E0023FD09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A19420D211A95030023FD09 /* NewsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIService.swift; sourceTree = "<group>"; };
 		7A194211211A95AB0023FD09 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		7A194213211A97010023FD09 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				7A194211211A95AB0023FD09 /* Article.swift */,
-				7A194213211A97010023FD09 /* Source.swift */,
+				7A194215211AB3B60023FD09 /* NewsAPIResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,9 +313,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */,
 				7A1941DC211A8D0B0023FD09 /* ViewController.swift in Sources */,
 				7A1941DA211A8D0B0023FD09 /* AppDelegate.swift in Sources */,
-				7A194214211A97010023FD09 /* Source.swift in Sources */,
 				7A19420E211A95030023FD09 /* NewsAPIService.swift in Sources */,
 				7A194212211A95AB0023FD09 /* Article.swift in Sources */,
 			);
