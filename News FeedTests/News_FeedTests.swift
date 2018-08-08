@@ -32,7 +32,7 @@ class News_FeedTests: XCTestCase {
             case .success(let response):
                 print("Parsed Results: \(response)")
                 if let articles = response.articles {
-                    XCTAssertTrue(articles.count == response.totalResults)
+                    XCTAssertEqual(articles.count, response.totalResults,"Mismatch in count between the number of articles received vs. reported.")
                 } else {
                     XCTFail("Successful response, however no articles were found.")
                 }
@@ -57,7 +57,7 @@ class News_FeedTests: XCTestCase {
                 XCTFail("Successful message received.  It should have failed with an error (status 401)")
             case .failure(let error as NSError):
                 print("Error: \(error)")
-                XCTAssert(error.code == 401, "Incorrect error code received.  Should be 401.")
+                XCTAssertEqual(error.code, 401,"Incorrect error code received.  Should be 401.")
             }
             
             expectation.fulfill()
