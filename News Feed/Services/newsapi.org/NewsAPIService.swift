@@ -47,18 +47,25 @@ class NewsAPIService {
             if (error == nil) {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
-                if statusCode == 200 {
-                    if let jsonData = data {
-                        let decoder = JSONDecoder()
-                        decoder.dateDecodingStrategy = .iso8601
-                        do {
-                            let apiResponse = try decoder.decode(NewsAPIResponse.self, from: jsonData)
+                if let jsonData = data {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    do {
+                        let apiResponse = try decoder.decode(NewsAPIResponse.self, from: jsonData)
+                        // Verify if API call reported successful.
+                        if apiResponse.status == "ok" {
                             completionHandler(ServiceResult.success(response: apiResponse))
-                        } catch DecodingError.dataCorrupted(let context) {
-                            completionHandler(ServiceResult.failure(error: DecodingError.dataCorrupted(context)))
-                        } catch let decodeError {
-                            completionHandler(ServiceResult.failure(error: decodeError))
+                        } else {
+                            // Error state.  Both code and message should have been provided in the resposne.
+                            completionHandler(ServiceResult.failure(error: NSError(domain: "NewsAPIResponse",
+                                                                                   code: statusCode,
+                                                                                   userInfo: ["message": apiResponse.message ?? "No message.",
+                                                                                              "code": apiResponse.code ?? "No Code."])))
                         }
+                    } catch DecodingError.dataCorrupted(let context) {
+                        completionHandler(ServiceResult.failure(error: DecodingError.dataCorrupted(context)))
+                    } catch let decodeError {
+                        completionHandler(ServiceResult.failure(error: decodeError))
                     }
                 }
             }
