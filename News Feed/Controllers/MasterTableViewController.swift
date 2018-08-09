@@ -69,9 +69,10 @@ class MasterTableViewController: UITableViewController {
                     if let articles = response.articles {
                         self.articles = articles
                     }
-                case .failure:
-                    // TODO: Create proper error.
-                    debugPrint("Print error.")
+                case .failure(let error):
+                    let alert = UIAlertController(title: "Data Loading Error", message:error.localizedDescription , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.refreshControl?.endRefreshing()
