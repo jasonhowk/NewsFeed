@@ -19,6 +19,7 @@
 		7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */; };
 		7A19421E211B84970023FD09 /* ServiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421D211B84970023FD09 /* ServiceCoordinator.swift */; };
 		7A194220211B8BEB0023FD09 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */; };
+		7A194227211BBBCC0023FD09 /* ImageRequesterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194226211BBBCC0023FD09 /* ImageRequesterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		7A19421B211B6E0B0023FD09 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		7A19421D211B84970023FD09 /* ServiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCoordinator.swift; sourceTree = "<group>"; };
 		7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
+		7A194226211BBBCC0023FD09 /* ImageRequesterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequesterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7A19421D211B84970023FD09 /* ServiceCoordinator.swift */,
+				7A194225211BBB940023FD09 /* ImageRequester */,
 				7A19420C211A94E40023FD09 /* newsapi.org */,
 			);
 			path = Services;
@@ -186,6 +189,14 @@
 				7A19420D211A95030023FD09 /* NewsAPIService.swift */,
 			);
 			path = newsapi.org;
+			sourceTree = "<group>";
+		};
+		7A194225211BBB940023FD09 /* ImageRequester */ = {
+			isa = PBXGroup;
+			children = (
+				7A194226211BBBCC0023FD09 /* ImageRequesterService.swift */,
+			);
+			path = ImageRequester;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 			files = (
 				7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */,
 				7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */,
+				7A194227211BBBCC0023FD09 /* ImageRequesterService.swift in Sources */,
 				7A194220211B8BEB0023FD09 /* MasterTableViewCell.swift in Sources */,
 				7A1941DA211A8D0B0023FD09 /* AppDelegate.swift in Sources */,
 				7A19421E211B84970023FD09 /* ServiceCoordinator.swift in Sources */,

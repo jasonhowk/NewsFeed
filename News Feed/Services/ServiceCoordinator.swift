@@ -17,6 +17,7 @@ class ServiceCoordinator {
     
     // Services
     lazy var newsService:NewsAPIService = NewsAPIService(withKey: newsAPIKey)
+    lazy var imageServer:ImageRequesterService = ImageRequesterService()
     
     // Singleton
     static let sharedInstance = ServiceCoordinator()

@@ -16,10 +16,16 @@ class MasterTableViewCell: UITableViewCell {
     
     var article:Article? {
         didSet {
-            //heroImageView.image
             sourceLabel.text = article?.source.name
             titleLabel.text = article?.title
-            
+            if let imageURL = article?.imageURL {
+                ServiceCoordinator.sharedInstance.imageServer.requestImageFromURL(imageURL, completionHandler: { [weak self] (image, error) in
+                    guard let strongSelf = self else { return }
+                    DispatchQueue.main.async {
+                        strongSelf.heroImageView.image = image
+                    }
+                })
+            }
             setNeedsLayout()
         }
     }
@@ -33,7 +39,7 @@ class MasterTableViewCell: UITableViewCell {
         titleLabel = UILabel()
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         titleLabel.numberOfLines = 0
-        heroImageView = UIImageView(image: #imageLiteral(resourceName: "Placeholder2"))
+        heroImageView = UIImageView()
         heroImageView.clipsToBounds = true
         heroImageView.contentMode = .scaleAspectFill
         
@@ -62,29 +68,11 @@ class MasterTableViewCell: UITableViewCell {
         ]
         NSLayoutConstraint.activate(constraints)
         
-        
-        
-//        heroImageView.translatesAutoresizingMaskIntoConstraints = false
-//        heroImageView.topAnchor.constraint(equalTo: marginsGuide.topAnchor, constant: 8.0).isActive = true
-//        heroImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-//        heroImageView.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor).isActive = true
-//        heroImageView.widthAnchor.constraint(equalTo: marginsGuide.widthAnchor).isActive = true
-//
-//        sourceLabel.translatesAutoresizingMaskIntoConstraints = false
-//        sourceLabel.topAnchor.constraint(equalTo: heroImageView.bottomAnchor, constant: 8.0).isActive = true
-//        sourceLabel.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor).isActive = true
-//
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        titleLabel.topAnchor.constraint(equalTo: sourceLabel.bottomAnchor, constant: 8.0).isActive = true
-//        titleLabel.leadingAnchor.constraint(equalTo: marginsGuide.leadingAnchor).isActive = true
-//        titleLabel.trailingAnchor.constraint(equalTo: marginsGuide.trailingAnchor).isActive = true
-//        titleLabel.bottomAnchor.constraint(equalTo: marginsGuide.bottomAnchor, constant: -8.0).isActive = true
-        
         // DEBUG
         // contentView.backgroundColor = .gray
         // sourceLabel.backgroundColor = .red
         // titleLabel.backgroundColor = .blue
-        heroImageView.backgroundColor = .green
+        // heroImageView.backgroundColor = .green
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -96,6 +84,9 @@ class MasterTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        heroImageView.image = nil
+        sourceLabel.text = ""
+        titleLabel.text = ""
     }
     
     
