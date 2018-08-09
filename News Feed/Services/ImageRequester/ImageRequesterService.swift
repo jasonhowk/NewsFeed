@@ -14,23 +14,28 @@ class ImageRequesterService {
     private let defaultTimeoutInterval = 10.0
     
     // Properties.
-    lazy private var placeholderImage:UIImage = #imageLiteral(resourceName: "Placeholder2")
+    lazy private var placeholderImage:UIImage = #imageLiteral(resourceName: "Placeholder")
     
     // MARK: - Public
-    func requestImageFromURL(_ urlString:String, completionHandler:@escaping (UIImage?, Error?) -> Void) {
+    func requestImageFromURL(_ urlString:String?, completionHandler:@escaping (UIImage?, Error?) -> Void) {
         // request image.
-        requestImageFromURL(urlString) { (data, response, error) in
-            // grab image and create UIImage
-            if let error = error {
-                completionHandler(self.placeholderImage, error)
-            } else {
-                var image = self.placeholderImage
-                if let imageData = data, let resultImage = UIImage(data: imageData) {
-                    image = resultImage
+        if let url = urlString {
+            requestImageFromURL(url) { (data, response, error) in
+                // grab image and create UIImage
+                if let error = error {
+                    completionHandler(self.placeholderImage, error)
+                } else {
+                    var image = self.placeholderImage
+                    if let imageData = data, let resultImage = UIImage(data: imageData) {
+                        image = resultImage
+                    }
+                    completionHandler(image, nil)
                 }
-                completionHandler(image, nil)
             }
+        } else {
+            completionHandler(self.placeholderImage, nil)
         }
+        
     }
     
     // MARK: - Private

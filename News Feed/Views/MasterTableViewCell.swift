@@ -18,14 +18,12 @@ class MasterTableViewCell: UITableViewCell {
         didSet {
             sourceLabel.text = article?.source.name
             titleLabel.text = article?.title
-            if let imageURL = article?.imageURL {
-                ServiceCoordinator.sharedInstance.imageServer.requestImageFromURL(imageURL, completionHandler: { [weak self] (image, error) in
-                    guard let strongSelf = self else { return }
-                    DispatchQueue.main.async {
-                        strongSelf.heroImageView.image = image
-                    }
-                })
-            }
+            ServiceCoordinator.sharedInstance.imageServer.requestImageFromURL(article?.imageURL, completionHandler: { [weak self] (image, error) in
+                guard let strongSelf = self else { return }
+                DispatchQueue.main.async {
+                    strongSelf.heroImageView.image = image
+                }
+            })
             setNeedsLayout()
         }
     }
