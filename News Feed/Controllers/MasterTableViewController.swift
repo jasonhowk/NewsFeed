@@ -57,12 +57,6 @@ class MasterTableViewController: UITableViewController {
 
         return cell
     }
-
-    
-    // MARK: - Table view delegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint("Did Select item @ indexPath: \(indexPath.row)")
-    }
     
     // MARK: - Private
     @objc private func loadData() {
@@ -85,14 +79,15 @@ class MasterTableViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let viewController:DetailViewController = segue.destination as! DetailViewController
+        if let cell = sender as? MasterTableViewCell {
+            viewController.article = cell.article
+        }
     }
-    */
 
 }
