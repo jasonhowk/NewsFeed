@@ -44,7 +44,7 @@ class NewsAPIService {
         // RESPONSE: status, totalResults, articles (array[article])
         let topHeadlinesURLString = baseURL + defaultTopHeadlinesPath
         requestURL(topHeadlinesURLString) { (data, response, error) in
-            if (error == nil) {
+            if error == nil {
                 // Success
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 if let jsonData = data {
