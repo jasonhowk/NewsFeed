@@ -45,11 +45,8 @@ class ImageRequesterService {
         
         // Create the URL
         guard let urlComponents = URLComponents(string: urlString) else { return }
-//        urlComponents.queryItems = [
-//            URLQueryItem(name: "country", value: "us")
-//        ]
         guard let url = urlComponents.url else { return }
-        debugPrint("Created URL: \(url)")
+        // debugPrint("Created URL: \(url)")
         
         // Create request
         var request = URLRequest(url: url)

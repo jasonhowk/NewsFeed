@@ -103,7 +103,6 @@ class NewsAPIService {
             URLQueryItem(name: "country", value: "us")
         ]
         guard let url = urlComponents.url else { return }
-        debugPrint("Created URL: \(url)")
         
         // Create request
         var request = URLRequest(url: url)
