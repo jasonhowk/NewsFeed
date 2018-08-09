@@ -10,14 +10,11 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var tldrView: UIView!
+    
+    @IBOutlet weak var tldrView: TLDRView!
     @IBOutlet weak var webView: WKWebView!
     
     var article:Article?
-    
-    override func awakeFromNib() {
-        super .awakeFromNib()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +23,16 @@ class DetailViewController: UIViewController {
         webView.allowsBackForwardNavigationGestures = true
         if let article = article, let url = URL(string: article.url) {
             let request = URLRequest(url: url)
-            self.webView.load(request)
+            webView.load(request)
         }
+        // Configure TL;DR View
+        tldrView.articlePublishedDate = article?.datePublished
+        if let description = article?.description, description.isEmpty {
+            tldrView.articleDescription = "No description available."
+        } else {
+            tldrView.articleDescription = article?.description
+        }
+            
     }
 
     override func didReceiveMemoryWarning() {

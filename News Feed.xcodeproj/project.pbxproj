@@ -21,6 +21,7 @@
 		7A194220211B8BEB0023FD09 /* MasterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */; };
 		7A194227211BBBCC0023FD09 /* ImageRequesterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194226211BBBCC0023FD09 /* ImageRequesterService.swift */; };
 		7A194229211BE7A60023FD09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A194228211BE7A60023FD09 /* DetailViewController.swift */; };
+		7A19422B211BF8120023FD09 /* TLDRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A19422A211BF8120023FD09 /* TLDRView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewCell.swift; sourceTree = "<group>"; };
 		7A194226211BBBCC0023FD09 /* ImageRequesterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequesterService.swift; sourceTree = "<group>"; };
 		7A194228211BE7A60023FD09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7A19422A211BF8120023FD09 /* TLDRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLDRView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				7A19421F211B8BEB0023FD09 /* MasterTableViewCell.swift */,
+				7A19422A211BF8120023FD09 /* TLDRView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A19422B211BF8120023FD09 /* TLDRView.swift in Sources */,
 				7A194229211BE7A60023FD09 /* DetailViewController.swift in Sources */,
 				7A194216211AB3B60023FD09 /* NewsAPIResponse.swift in Sources */,
 				7A19421C211B6E0B0023FD09 /* MasterTableViewController.swift in Sources */,
