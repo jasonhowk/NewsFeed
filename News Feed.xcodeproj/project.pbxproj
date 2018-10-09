@@ -273,13 +273,16 @@
 				TargetAttributes = {
 					7A1941D5211A8D0B0023FD09 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					7A1941E9211A8D0D0023FD09 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 7A1941D5211A8D0B0023FD09;
 					};
 					7A1941F4211A8D0D0023FD09 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 7A1941D5211A8D0B0023FD09;
 					};
 				};
@@ -527,7 +530,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -545,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -565,7 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-FeedTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/News Feed.app/News Feed";
 			};
@@ -586,7 +589,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-FeedTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/News Feed.app/News Feed";
 			};
@@ -606,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-FeedUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "News Feed";
 			};
@@ -626,7 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rudetie.News-FeedUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "News Feed";
 			};

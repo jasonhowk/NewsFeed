@@ -26,7 +26,7 @@ class MasterTableViewController: UITableViewController {
         refreshControl = refresh
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 404
         
         // Grab the data...
